@@ -21,7 +21,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     // Simple validation (replace with actual auth later)
     if (username && password) {
         // Redirect to the welcome page after successful login
-        window.location.href = 'welcome.html'; // Change this to your actual welcome page
+        window.location.href = 'Welcome.html'; // Change this to your actual welcome page
     } else {
         alert('Please enter both username and password');
     }
