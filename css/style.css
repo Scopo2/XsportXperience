@@ -1,0 +1,536 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: hsl(222, 69%, 45%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(10, 14, 23, 0.9);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Navigation links positioning */
+.nav-links {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Keep all existing nav-link styles below */
+.nav-links a {
+    color: #8b9cb3;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #ff4655;
+}
+
+.login-link {
+    color: #ff4655 !important;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Changed from center to flex-start */
+    padding-top: 1.5rem; /* Added top padding */
+}
+
+/* Logo positioning */
+.logo {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+}
+
+/* Logo & Site Name Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and text */
+}
+
+.logo-img {
+    height: 30px; /* Smaller logo size */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* Subtle hover effect */
+}
+
+.site-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.header-container .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-container .logo-img {
+    height: 28px !important; /* Same as login page */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-container .site-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* For SVG logos */
+.logo-svg {
+    height: 40px;
+    width: 120px; /* Adjust width for text logos */
+    fill: #ff4655; /* Change SVG color */
+}
+
+/* ===== Dashboard Profile + Navigation ===== */
+.header-right {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    z-index: 1001;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    z-index: 1002; /* Higher than navigation */
+    position: relative; /* Needed for z-index */
+    background-color: rgba(10, 14, 23, 0.9); /* Match nav background */
+}
+
+.notifications {
+    position: relative;
+    color: #8b9cb3;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.notifications:hover {
+    color: #ff4655;
+}
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4655;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile-dropdown:hover {
+    color: #ff4655;
+}
+
+
+/* Navigation */
+.main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1001; /* Lower than profile */
+    margin-top: -1px; /* Pull up slightly to connect visually */
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 1.8rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    align-items: center;
+    background-color: rgba(10, 14, 23, 0.9); /* Match nav background */
+    padding-right: 0.5rem; /* Add some right padding */
+}
+
+.main-nav li {
+    position: relative;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8b9cb3;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #ff4655;
+}
+
+.main-nav a.active {
+    color: #ff4655;
+    font-weight: 600;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff4655;
+    animation: fadeIn 0.3s ease;
+}
+
+.main-nav i {
+    font-size: 1rem;
+    min-width: 16px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(2px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo Protection (Add this with your logo styles) */
+.logo {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    z-index: 1001;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #8b9cb3;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #ff4655;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e03e4c;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Featured Games Section */
+.featured-games {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-games h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #ff4655;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.game-card {
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.03);
+}
+
+.game-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.game-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Login Section */
+.login-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.login-container {
+    background-color: #1a2a3a;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    position: relative;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    color: #ff4655;
+}
+
+.close-login {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-login:hover {
+    color: #ff4655;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8b9cb3;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background-color: #2a3b4c;
+    border: 1px solid #3a4b5c;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.login-btn:hover {
+    background-color: #e03e4c;
+}
+
+.login-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: #8b9cb3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-footer a:hover {
+    color: #ff4655;
+}
+
+/* Contact Page Styles */
+.contact-content {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 6rem auto 0;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.admin-card {
+    background-color: #1a2a3a;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+}
+
+.admin-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #ff4655;
+}
+
+.admin-contact {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.admin-contact p {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-contact i {
+    margin-right: 0.5rem;
+    color: #ff4655;
+}

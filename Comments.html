@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Comments - EsportXperience</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background-color: #1a1a1a;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(10, 14, 23, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .comment-form {
+            margin-top: 2rem;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 1rem;
+            background: #fff;
+            color: #000;
+        }
+
+        .comment-form button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comments-section {
+            margin-top: 2rem;
+        }
+
+        .comment {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .reply-form {
+            margin-top: 1rem;
+            display: none; /* Hidden by default */
+        }
+
+        .admin-reply {
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Comments</h1>
+        <div class="comment-form">
+            <textarea id="commentInput" placeholder="Leave your comment here..."></textarea>
+            <button id="submitCommentBtn">Submit Comment</button>
+        </div>
+
+        <div class="comments-section" id="commentsSection">
+            <!-- Comments will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitCommentBtn').addEventListener('click', function() {
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value.trim();
+
+            if (commentText) {
+                // Create a new comment element
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+
+                // Create the reply button and form
+                const replyButton = document.createElement('button');
+                replyButton.textContent = 'Reply';
+                replyButton.className = 'reply-btn';
+                replyButton.onclick = function() {
+                    const replyForm = commentDiv.querySelector('.reply-form');
+                    replyForm.style.display = replyForm.style.display === 'block' ? 'none' : 'block';
+                };
+
+                const replyForm = document.createElement('div');
+                replyForm.className = 'reply-form';
+                replyForm.innerHTML = `
+                    <textarea placeholder="Type your reply here..."></textarea>
+                    <button class="submit-reply-btn">Submit Reply</button>
+                `;
+
+                replyForm.querySelector('.submit-reply-btn').onclick = function() {
+                    const replyInput = replyForm.querySelector('textarea').value.trim();
+                    if (replyInput) {
+                        const adminReplyDiv = document.createElement('div');
+                        adminReplyDiv.className = 'admin-reply';
+                        adminReplyDiv.innerHTML = `<strong>Admin:</strong> ${replyInput}`;
+                        commentDiv.appendChild(adminReplyDiv);
+                        replyForm.querySelector('textarea').value = ''; // Clear the reply input
+                        replyForm.style.display = 'none'; // Hide reply form
+                    } else {
+                        alert('Please enter a reply before submitting.');
+                    }
+                };
+
+                commentDiv.innerHTML = `<p><strong>User:</strong> ${commentText}</p>`;
+                commentDiv.appendChild(replyButton);
+                commentDiv.appendChild(replyForm);
+
+                // Append the new comment to the comments section
+                document.getElementById('commentsSection').appendChild(commentDiv);
+
+                // Alert the user
+                alert('Thank you for your comment!');
+
+                // Clear the input
+                commentInput.value = '';
+            } else {
+                alert('Please enter a comment before submitting.');
+            }
+        });
+    </script>
+</body>
+</html>

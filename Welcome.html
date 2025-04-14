@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - EsportXperience</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Allow stacking of elements */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,14,23,0.85) 0%, rgba(255,70,85,0.25) 100%);
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .welcome-container {
+            background: rgba(10, 14, 23, 0.9);
+            padding: 3rem;
+            border-radius: 12px;
+            animation: slideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 70, 85, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            margin: 0 0 1rem;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin: 0 0 2rem;
+            color: #8b9cb3;
+            line-height: 1.6;
+        }
+
+        .dashboard-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #ff4655;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 70, 85, 0.3);
+        }
+
+        .dashboard-btn:hover {
+            background-color: #e03e4c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 70, 85, 0.4);
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            margin-top: 2rem; /* Space above dashboard */
+            background: rgba(10, 14, 23, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .data-visualization {
+            width: 100%;
+            height: 300px; /* Fixed height for chart */
+        }
+
+        /* Mission Sections */
+        .mission-section {
+            margin-top: 2rem;
+            background: rgba(10, 14, 23, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .mission-section h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome Champion</h1>
+        <p>Your EsportXperience is ready. Prepare to dominate the competition.</p>
+        <a href="index.html" class="dashboard-btn">ENTER DASHBOARD</a>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <h2>Decision Support Dashboard</h2>
+        <div class="analytics-panel">
+            <h3>Gameplay Data Analytics</h3>
+            <div class="data-visualization">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+        <div class="predictive-analytics">
+            <h3>Predictive Analytics</h3>
+            <p>Forecasts based on historical data:</p>
+            <ul id="forecastList">
+                <!-- Forecasts will be dynamically populated here -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Mission Sections -->
+    <section class="mission-section">
+        <h3>Digital Competition Mission</h3>
+        <p>Leverage cutting-edge information systems for seamless esports competition management, connecting gamers globally with real-time analytics for strategic decision-making.</p>
+    </section>
+
+    <section class="mission-section">
+        <h3>Pandemic-Adaptive Mission</h3>
+        <p>Maintain uninterrupted esports operations through cloud-based management, supporting remote tournaments and virtual collaboration in a contactless digital environment.</p>
+    </section>
+
+    <section class="mission-section">
+        <h3>Process Automation Mission</h3>
+        <p>Digitize tournament workflows from player registration to prize distribution through ERP systems, eliminating physical paperwork and manual processes.</p>
+    </section>
+
+    <section class="mission-section">
+        <h3>Global Reach Mission</h3>
+        <p>Deploy multilingual CRM platforms to personalize engagement across 50+ countries, using predictive analytics to anticipate gamer needs before they arise.</p>
+    </section>
+
+    <section class="mission-section">
+        <h3>Talent Development Mission</h3>
+        <p>Implement learning management systems to identify and nurture esports talent through AI-driven performance tracking and customized training modules.</p>
+    </section>
+
+    <script>
+        // Sample code to initialize a chart (requires Chart.js or similar library)
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Match 1', 'Match 2', 'Match 3'],
+                datasets: [{
+                    label: 'Player Performance',
+                    data: [12, 19, 3],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

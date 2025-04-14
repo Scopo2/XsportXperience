@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EsportXperience | The Ultimate Gaming Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <!-- Logo Group (Left) -->
+            <div class="logo">
+                <img src="images/Logo.png" alt="EsportXperience Logo" class="logo-img">
+                <span class="site-name">EsportXperience</span>
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="ManagerCommunication.html" class="communication-btn">Manager Communication</a></li>
+                        <li><a href="contacts.html" class="contact us-btn">Contact Us</a></li> 
+                        <li><a href="Features.html" class="features-btn">Features</a></li>
+                        <li><a href="#tournaments">Tournaments</a></li>
+                        <li><a href="about.html" class="about-btn">About</a></li>
+                        <li><a href="Comments.html" class="comments-btn">Comments</a></li>
+                        <li><a href="#login" class="login-link">Login</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Gaming Imagery -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>COMPETE. CONNECT. CONQUER.</h1>
+            <p>Join the ultimate esports platform with cutting-edge technology</p>
+            <div class="hero-buttons">
+                <a href="#login" class="btn-primary">Get Started</a>
+                <a href="#tournaments" class="btn-secondary">View Tournaments</a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Games/Tech Section -->
+    <section class="featured-games">
+        <h2>FEATURED GAMES & TECH</h2>
+        <div class="game-grid">
+            <div class="game-card" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="game-info">
+                    <h3>VALORANT</h3>
+                    <p>Next tournament: June 15</p>
+                </div>
+            </div>
+            <div class="game-card" style="background-image: url('https://images.unsplash.com/photo-1607853202273-797f1c22a38e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80')">
+                <div class="game-info">
+                    <h3>FORTNITE</h3>
+                    <p>Next tournament: June 18</p>
+                </div>
+            </div>
+            <div class="game-card" style="background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="game-info">
+                    <h3>GAMING TECH</h3>
+                    <p>Latest gear showcase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <h2>Decision Support Dashboard</h2>
+        <div class="analytics-panel">
+            <h3>Gameplay Data Analytics</h3>
+            <div class="data-visualization">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+        <div class="reporting-tools">
+            <h3>Custom Reporting Tools</h3>
+            <button onclick="generateReport()">Generate Report</button>
+        </div>
+        <div class="predictive-analytics">
+            <h3>Predictive Analytics</h3>
+            <p>Forecasts based on historical data:</p>
+            <ul id="forecastList">
+                <!-- Forecasts will be dynamically populated here -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function generateReport() {
+            alert("Report generated!");
+        }
+
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Match 1', 'Match 2', 'Match 3'],
+                datasets: [{
+                    label: 'Player Performance',
+                    data: [12, 19, 3],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Login Section (Initially Hidden) -->
+<section id="login" class="login-section">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>ACCESS YOUR ACCOUNT</h2>
+            <button class="close-login">&times;</button>
+        </div>
+        <form id="loginForm">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" required placeholder="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" required placeholder="Password">
+            </div>
+            <button type="submit" class="login-btn">LOGIN</button>
+            <div class="login-footer">
+                <a href="#">Forgot password?</a>
+                <a href="#">Create new account</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
