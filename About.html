@@ -125,6 +125,23 @@
             text-shadow: 0 0 8px rgba(0, 174, 255, 0.4);
         }
 
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #00aeff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #0077cc;
+        }
+
         @keyframes fadeIn {
             from { 
                 opacity: 0;
@@ -162,13 +179,14 @@
         <h1>About EsportXperience</h1>
         <p>Click on the icons below to view the respective documents.</p>
 
-        <div class="icon">
+        <div class="icons-wrapper">
             <div class="icon">
                 <a href="AcceptableUsePolicy.html">
                     <div class="icon-content">
                         <div class="icon-title">Acceptable Use Policy</div>
                     </div>
                 </a>
+                <a href="AcceptableUsePolicy.pdf" class="download-btn" download>Download PDF</a>
             </div>
 
             <div class="icon">
@@ -177,13 +195,16 @@
                         <div class="icon-title">EAA</div>
                     </div>
                 </a>
+                <a href="EAA.pdf" class="download-btn" download>Download PDF</a>
             </div>
+
             <div class="icon">
                 <a href="CodeOfEthics.html">
                     <div class="icon-content">
                         <div class="icon-title">Code of Ethics</div>
                     </div>
                 </a>
+                <a href="CodeOfEthics.pdf" class="download-btn" download>Download PDF</a>
             </div>
 
             <div class="icon">
@@ -192,14 +213,16 @@
                         <div class="icon-title">Mission Statement</div>
                     </div>
                 </a>
+                <a href="MissionStatement.pdf" class="download-btn" download>Download PDF</a>
             </div>
 
             <div class="icon">
                 <a href="StandardOperatingProcedure.html">
-                    <div class="icon-content"
+                    <div class="icon-content">
                         <div class="icon-title">Standard Operating Procedure</div>
                     </div>
                 </a>
+                <a href="StandardOperatingProcedure.pdf" class="download-btn" download>Download PDF</a>
             </div>
         </div>
     </div>
