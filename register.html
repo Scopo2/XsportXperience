@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - EsportXperience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --success: #00b894;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 5px rgba(108, 92, 231, 0.7));
+        }
+        
+        .site-name {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+        }
+        
+        .registration-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .registration-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: 0;
+        }
+        
+        @keyframes pulse {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+            100% { transform: translate(-10%, -10%); }
+        }
+        
+        .registration-container {
+            background: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s forwards 0.3s;
+        }
+        
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .registration-container h2 {
+            font-family: 'Oxanium', sans-serif;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group:hover {
+            transform: translateX(5px);
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid rgba(108, 92, 231, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+        }
+        
+        .input-group input:focus + i {
+            color: var(--primary);
+            transform: translateY(-50%) scale(1.2);
+        }
+        
+        .register-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .register-btn:hover::before {
+            left: 100%;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+        }
+        
+        .register-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .registration-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .registration-footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .registration-footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .registration-footer a:hover {
+            color: var(--accent);
+        }
+        
+        .registration-footer a:hover::after {
+            width: 100%;
+        }
+        
+        /* Particles background effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(0) rotate(0deg); opacity: 1; }
+            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 2rem 1.5rem;
+                max-width: 90%;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            .site-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/Logo.png" alt="EsportXperience Logo" class="logo-img">
+                <span class="site-name">EsportXperience</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="registration-section">
+        <div class="registration-container">
+            <h2>Create Your Account</h2>
+            <form id="registrationForm" onsubmit="return handleRegistration(event)">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="reg-username" required placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="reg-email" required placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="reg-password" required placeholder="Password">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="reg-confirm-password" required placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="register-btn">Create Account</button>
+            </form>
+            <div class="registration-footer">
+                <a href="index.html">Already have an account? Login</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleRegistration(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            // Get the username from the input field
+            const username = document.getElementById('reg-username').value;
+
+            // Add loading animation
+            const btn = document.querySelector('.register-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+            btn.disabled = true;
+            
+            // Simulate API call with timeout
+            setTimeout(() => {
+                // Redirect to the welcome page with the username
+                window.location.href = `welcome.html?name=${encodeURIComponent(username)}`;
+            }, 1500);
+        }
+        
+        // Create particles background
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 1;
+                const posX = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * -20;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
